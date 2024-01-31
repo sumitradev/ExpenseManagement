@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<ExpenseCategory>;
+@{
+    ViewData["Title"] = "Expense Category";
+}
+<div>
+    <div class="row pt-4">
+        <div class="col-9">
+            <h2> Expense Category</h2>
+        </div>
+        <div class="col-3">
+            <a asp-controller="ExpenseCategory" asp-action="Create" class="btn btn-primary">New Expense Category</a>
+        </div>
+        <br/>
+    </div>
+ @if(Model.Count() > 0)
+    {
+        <table class="table table-bordered table-hover table-striped" width="100%">
+            <thead>
+                <tr>
+                    <th> Expense Category</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                @foreach(var item in Model)
+                {
+                    <tr>
+                    <td width="80%">@item.ExpenseCategoryName</td>
+                    <td width="20%">
+                        <a asp-controller="ExpenseCategory" asp-action="GetExpenseCategoryDetForUpdate" asp-route-id="@item.ExpenseCategoryId" class="btn btn-primary mx-2">Update</a>
+                        <a asp-controller="ExpenseCategory" asp-action="GetExpenseCategoryDetForDelete" asp-route-id="@item.ExpenseCategoryId" class="btn btn-primary mx-2">Delete</a>
+                    </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Expense Category created yet</p>
+    }
+
+</div>

@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Expense;
+@{
+    ViewData["Title"] = "View Expense Details for Update";
+}
+
+<form method="post" asp-action="Update">
+    <div class="row">
+        <div class="col-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div> <h1> Expense Update </h1></div>
+
+            <br/>
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="ExpenseDate"></label>
+                    <input asp-for="ExpenseDate" class="form-control dateptimepicker" />
+                    <span asp-validation-for="ExpenseDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="ExpenseGivenTo"></label>
+                    <input asp-for="ExpenseGivenTo" class="form-control dateptimepicker" />
+                    <span asp-validation-for="ExpenseGivenTo" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <label asp-for="ExpenseAmount"></label>
+                    <input asp-for="ExpenseAmount" class="form-control dateptimepicker" />
+                    <span asp-validation-for="ExpenseAmount" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="" role="group">
+                <input type="submit" class="btn btn-primary" value="Save"/>
+                <a asp-action="Index" class="btn btn-danger">Back</a>
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model UserProfile
+@{
+    Layout = "_LayoutLogin";
+    ViewData["Title"] = "Login";
+}
+
+<form method="post" asp-action="Login">
+    
+    <div class="container align-content-right">
+
+        <div class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <p style="color:red">@ViewBag.LoginStatus</p>
+            <h1>Login Profile</h1>
+            <div class="row">
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="UserEmail"></label>
+                        <input asp-for="UserEmail" class="form-control" />
+                        <span asp-validation-for="UserEmail" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label asp-for="UserPassword"></label>
+                        <input asp-for="UserPassword" class="form-control" type="password" />
+                        <span asp-validation-for="UserPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <br/>
+                <div class="w-12 btn-group" role="group">
+                    <div class="col-4">
+                        <input type="submit" class="btn btn-primary mx-1" value="Login" />
+                        <a asp-controller="UserProfile" asp-action="Registration" class="btn btn-success mx-1">Registration</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

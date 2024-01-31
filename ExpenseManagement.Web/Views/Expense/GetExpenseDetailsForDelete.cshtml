@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Expense;
+@{
+    ViewData["Title"] = "View Expense Data For Delete";
+}
+
+<form method="post" asp-action="Delete">
+    <input asp-for="ExpenseId" hidden />
+    <div class="border p-1">
+        <div class="form-group row">
+            <h2>Delete Your Expense</h2>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-4">
+                <label asp-for="ExpenseDate"></label>
+                <input asp-for="ExpenseDate" class="form-control datetimepicker" disabled/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+
+                <label asp-for="ExpenseGivenTo"></label>
+                <input asp-for="ExpenseGivenTo" class="form-control" disabled/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+
+                <label asp-for="ExpenseAmount"></label>
+                <input asp-for="ExpenseAmount" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="" role="group">
+            <input type="submit" class="btn btn-primary" value="Delete" />
+            <a asp-action="Index" class="btn btn-danger">Back</a>
+        </div>
+    </div>
+</form>

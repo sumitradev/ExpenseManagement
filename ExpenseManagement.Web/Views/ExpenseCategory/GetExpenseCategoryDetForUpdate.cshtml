@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ExpenseCategory;
+@{
+    ViewData["Title"] = "Ëxpense Category";
+}
+
+<form method="post" asp-action="Update">
+    
+    <div class="row">
+        <div class="row">
+
+            <div class="col-5">
+                <div asp-validation-summary="ModelOnly">
+                </div>
+                <div><h2>Update Expense Category</h2></div>
+            </div>
+            <input asp-for="ExpenseCategoryId" hidden />
+        </div>
+        <div class="row">
+                   <div class="col-5">
+            <label asp-for="ExpenseCategoryName">
+            </label>
+            <input asp-for="ExpenseCategoryName" class="form-control" />
+            <span asp-validation-for="ExpenseCategoryName" class="text-danger"></span>
+        </div>
+    
+        </div>
+        <div class="col-5" role="group">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+    </div>
+    
+</form>

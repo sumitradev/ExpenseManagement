@@ -1,0 +1,51 @@
+﻿
+@model IEnumerable<Expense>;
+
+@{
+    ViewData["Title"] = "Expense";
+}
+
+<div>
+    <div class="row pt-4">
+        <h2> View all your Expenses</h2>
+    </div>
+    <div>
+        <a asp-controller="Expense" asp-action="Create">Add New Expense</a>
+    </div>
+</div>
+<br/>
+
+@if(Model.Count() > 0)
+{
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Expense Date</th>
+                <th>Expense Category</th>
+                <th>Given To</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.ExpenseDate</td>
+                    <td>@item.ExpenseCategory.ExpenseCategoryName</td>
+                    <td>@item.ExpenseGivenTo</td>
+                    <td>@item.ExpenseAmount</td>
+
+                    <td width="30%">
+                        <div>
+                            <a asp-controller="Expense" asp-action="GetExpenseDetailsForUpdate" asp-route-id="@item.ExpenseId"> Update</a>
+                            <a asp-controller="Expense" asp-action="GetExpenseDetailsForDelete" asp-route-id="@item.ExpenseId">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}else{
+    <p>No Expenses created yet</p>
+}
